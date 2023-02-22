@@ -1,25 +1,94 @@
 openedx-wallet
-#############################
+##############
 
-.. note::
+A simple internal storage backend for Verifiable Credentials application within the Open edX Credentials service.
 
-  TODO: describe the purpose and provide a general concept for this tool.
+Note: implemented as a Credentials plugin.
 
 Purpose
-*******
+=======
 
-A simple storage backend for Open edX Credentials `verifiable credentials` onboarding.
+Recently Open edX Credentials gained initial verifiable credentials support.
+It's `verifiable_credentials` application allows creation (issuance) of verifiable credentials based on
+the internally produced in Open edX ecosystem credentials (currently, achieved Program Certificates).
 
-TODO: describe
+Learners are able to:
+
+- **request an issuance** of a verifiable credential that "mirrors" internal Open edX credential;
+- **upload** issued verifiable credential to an **external storage**;
+
+Currently, the only implemented (built-in) storage is the Learner Record Wallet (mobile application).
+The Learner Record Wallet usage configuration includes some semi-formal steps to start working on a particular
+Open edX installation.
+
+This plugin adds another optional storage backend that is aimed to serve as a playground for
+the Verifiable Credentials feature.
+
+Functionality outline
+---------------------
+
+The `openedx-wallet` plugin utilizes storages extension point of the `verifiable_credentials` app.
+The plugin extends a list of available for usage verifiable credentials storages.
+
+Prerequisites:
+
+- Credentials service is configured with Verifiable Credentials feature enabled
+- a new UI іs available within the Learner Record micro-frontend
+- there must be at list 1 storage enabled for usage
+- `openedx-wallet` backend is included to the default storages configuration
+
+With active `openedx-wallet` backend another action button ("Download") becomes available within the Verifiable Credentials UI.
+Action button label (e.g. "Download") is configurable.
+
+Once learners click action button, instead of to be redirected to a mobile app (LC Wallet usage case), they are
+navigated to the internal plugin's `wallet-setup` page that allows a manual interactive ("Verifiable Credential requirements"
+web form) setup for further verifiable credential issuance.
+
+When the "Verifiable Credential requirements" form is valid (see below), a learner is able to submit the issuance request.
+
+A standard verifiable credential issuance process happens and a newly created artifact is returned in response.
+
+On response learners are redirected to the another internal `wallet-result` page:
+
+- issued verifiable credential is rendered (prettified JSON) within the result page;
+- issued verifiable credential is available for download ("Save locally" button);
+
+Verifiable Credential requirements form
+---------------------------------------
+
+An options could be:
+
+- required - to set a subject DID;
+- (optionally) to set a holder DID;
+- (optionally) to force a data model to use (by default: VC Data Model | Open Badges v3.0);
+- (optionally) to set expiration period;
+- ...
+- future: to compose verifiable presentations;
+- future: to share with browser extension(s) - investigate on the "CHAPI" use cases;
+
+Use cases
+---------
+
+onboarding
+  - interested parties are able to investigate on a verifiable credentials nature;
+  - interested parties are able to have a quick trial of the Open edX Verifiable Credentials feature (w/o LC Wallet prerequisites);
+
+production use
+  - learners - (in theory) want to download verifiable credentials for not yet integrated wallets (with the further import from a disk);
+
+further development
+  - QA/developers - future functionality extensions (new data models, new proof methods, etc.)
+
+------
 
 Getting Started
-***************
+===============
 
 Developing
-==========
+----------
 
-One Time Setup
---------------
+**One Time Setup**
+
 .. code-block::
 
   # Clone the repository
@@ -72,7 +141,7 @@ Deploying
 This app is aimed to be installed into the Open edX Credentials IDA python environment.
 
 Getting Help
-************
+============
 
 Documentation
 =============
@@ -80,7 +149,7 @@ Documentation
 TODO: where to find more details?
 
 License
-*******
+=======
 
 The code in this repository is licensed under the Apache Software License 2.0 unless
 otherwise noted.
@@ -88,6 +157,6 @@ otherwise noted.
 Please see `LICENSE.txt <LICENSE.txt>`_ for details.
 
 Reporting Security Issues
-*************************
+=========================
 
 Please do not report security issues in public. Please email security@tcril.org.
