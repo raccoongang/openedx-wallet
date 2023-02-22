@@ -1,10 +1,14 @@
 """
 URLs for openedx_wallet.
 """
-from django.urls import re_path  # pylint: disable=unused-import
-from django.views.generic import TemplateView  # pylint: disable=unused-import
+from django.conf import settings
+from django.urls import path
+from django.views.generic import TemplateView
 
 urlpatterns = [
     # TODO: Fill in URL patterns and views here.
-    # re_path(r'', TemplateView.as_view(template_name="openedx_wallet/base.html")),
+    path('', TemplateView.as_view(
+        template_name="openedx_wallet/base.html",
+        extra_context={'settings': settings}
+    )),
 ]

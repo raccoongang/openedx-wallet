@@ -105,14 +105,18 @@ setup(
     version=VERSION,
     description="""A simple storage backend for Open edX Credentials verifiable credentials onboarding""",
     long_description=README + '\n\n' + CHANGELOG,
-    author='edX',
-    author_email='oscm@edx.org',
-    url='https://github.com/openedx/openedx-wallet',
+    author='Raccoon Gang',
+    author_email='volodymyr.bergman@raccoongang.com',
+    url='https://gitlab.raccoongang.com/tcrill-funded/dcc-credentials/openedx-wallet',
     packages=find_packages(
         include=['openedx_wallet', 'openedx_wallet.*'],
         exclude=["*tests"],
     ),
-
+    entry_points={
+        'credentials.djangoapp': [
+            'openedx_wallet = openedx_wallet.apps:OpenedxWalletConfig',
+        ],
+    },
     include_package_data=True,
     install_requires=load_requirements('requirements/base.in'),
     python_requires=">=3.8",

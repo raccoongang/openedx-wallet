@@ -1,22 +1,10 @@
+<h1>Open edX Wallet plugin index</h1>
 
-{% comment %}
-As the developer of this package, don't place anything here if you can help it
-since this allows developers to have interoperability between your template
-structure and their own.
+<pre>
+If this page is available the following items are confirmed:
 
-Example: Developer melding the 2SoD pattern to fit inside with another pattern::
-
-    {% extends "base.html" %}
-    {% load static %}
-
-    <!-- Their site uses old school block layout -->
-    {% block extra_js %}
-
-        <!-- Your package using 2SoD block layout -->
-        {% block javascript %}
-            <script src="{% static 'js/ninja.js' %}" type="text/javascript"></script>
-        {% endblock javascript %}
-
-    {% endblock extra_js %}
-{% endcomment %}
-
+- installed plugin (Open edX Wallet) was auto-discovered by the Open edX Credentials service;
+- plugin's configuration is honored:
+  - urls: [credentials-ida-host]/openedx-wallet/
+  - settings: "OPENEDX_WALLET_TYPE" value is "{{ settings.OPENEDX_WALLET_TYPE }}" (dinamically resolved)
+</pre>
