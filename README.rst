@@ -77,7 +77,8 @@ production use
   - learners - (in theory) want to download verifiable credentials for not yet integrated wallets (with the further import from a disk);
 
 further development
-  - QA/developers - future functionality extensions (new data models, new proof methods, etc.)
+  - QA/developers - testing/understanding of the multi-storages option (more than 1 simultaneously active storages);
+  - QA/developers - future functionality extensions (new data models, new proof methods, etc.);
 
 ------
 
