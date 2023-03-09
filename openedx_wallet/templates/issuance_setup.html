@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load django_markup %}
+{% load html %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Setup" as tmsg %}{{ tmsg | force_escape }}
+{% endblock title %}
+
+{% block wrapper_content %}
+    <form action={% url 'openedx-wallet:issuance_result' %} method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{% trans "Request issuance" %}</button>
+        <a href={{ verifiable_credentials_mfe_url }}>Cancel</a>
+    </form>
+    {% include "_footer.html" %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load django_markup %}
+{% load html %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Result" as tmsg %}{{ tmsg | force_escape }}
+{% endblock title %}
+
+{% block wrapper_content %}
+    {{ credential}}
+    {% include "_footer.html" %}
+{% endblock %}
