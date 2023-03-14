@@ -110,3 +110,9 @@ install_transifex_client: ## Install the Transifex client
 	git diff -s --exit-code HEAD || { echo "Please commit changes first."; exit 1; }
 	curl -o- https://raw.githubusercontent.com/transifex/cli/master/install.sh | bash
 	git checkout -- LICENSE README.md ## overwritten by Transifex installer
+
+isort: ## Run isort to sort imports in all Python files
+	isort --atomic tests/ openedx_wallet/
+
+isort_check: ## Check that isort has been run
+	isort --check-only tests/ openedx_wallet/

@@ -3,16 +3,75 @@
 {% load html %}
 {% load i18n %}
 
+{% block stylesheets %}
+<style>
+    form {
+        margin: auto;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    select {
+
+        display: block;
+        width: 100%;
+        height: 34px;
+    }
+
+    label {
+        font-weight: 700;
+    }
+
+    span.label {
+        font-weight: 700;
+        margin-right: 20px;
+    }
+
+    div.container.headers {
+        text-align: center;
+    }
+
+    div.container.form {
+        display: flex;
+        padding: 20px;
+    }
+
+    .errorlist {
+        color: #ff0000
+    }
+
+    .actions button,a {
+        margin-right: 20px;
+    }
+</style>
+{% endblock %}
+
 {% block title %}
-    {% trans "Setup" as tmsg %}{{ tmsg | force_escape }}
+{% trans "Open edX Wallet: Setup" as tmsg %}{{ tmsg | force_escape }}
 {% endblock title %}
 
 {% block wrapper_content %}
-    <form action={% url 'openedx-wallet:issuance_result' %} method="POST">
+<div class="container headers">
+    <h1>{% trans "Open edX Sandbox Wallet" %}</h1>
+    <h3>{% trans "Verifiable credential issuance setup" %}</h3>
+</div>
+
+<div class="container form">
+    <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">{% trans "Request issuance" %}</button>
-        <a href={{ verifiable_credentials_mfe_url }}>Cancel</a>
+        <hr>
+        <div>
+            <p><span class="label">{% trans "Issuance line:" %}</span><span>{{ object.uuid }}</span>
+            <p><span class="label">{% trans "Issuer DID:" %}</span><span>{{ object.issuer_id }}</span>
+        </div>
+        <div class="actions">
+            <button type="submit">{% trans "Issue" %}</button>
+            <a href={{ learner_record_mfe_verifiable_credentials_url }}>{% trans "Cancel" %}</a>
+        </div>
     </form>
-    {% include "_footer.html" %}
+</div>
+{% include "_footer.html" %}
 {% endblock %}

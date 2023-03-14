@@ -3,11 +3,55 @@
 {% load html %}
 {% load i18n %}
 
+{% block stylesheets %}
+<style>
+    div.container.headers {
+        text-align: center;
+    }
+
+    div.container.preview {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .json-preview {
+        margin: auto;
+    }
+
+    pre {
+        border: solid 1px #d3d3d3;
+        padding: 30px;
+    }
+
+    .actions a {
+        margin-right: 20px;
+    }
+</style>
+{% endblock %}
+
+
 {% block title %}
-    {% trans "Result" as tmsg %}{{ tmsg | force_escape }}
+{% trans "Open edX Wallet: Result" as tmsg %}{{ tmsg | force_escape }}
 {% endblock title %}
 
 {% block wrapper_content %}
-    {{ credential}}
-    {% include "_footer.html" %}
+<div class="container headers">
+    <h1>{% trans "Open edX Sandbox Wallet" %}</h1>
+    <h3>{% trans "Issued verifiable credential" %}</h3>
+</div>
+
+<div class="container preview">
+    <a href={{ setup_page_url }}>{% trans "Back to Setup page" %}</a>
+    <div class="json-preview">
+        <pre id="verifiable-credential">{{ formatted_verifiable_credential | linebreaks  }}</pre>
+    </div>
+    <div class="actions">
+        <a href={{ learner_record_mfe_verifiable_credentials_url }}>{% trans "Request more" %}</a>
+        <a href="data:application/xml;charset=utf-8,{{ verifiable_credential }}" download="{{ json_file_name }}">
+            {% trans "Download" %}</a>
+    </div>
+</div>
+
+{% include "_footer.html" %}
 {% endblock %}

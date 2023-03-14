@@ -30,10 +30,8 @@ ROOT_URLCONF = 'openedx_wallet.urls'
 SECRET_KEY = 'insecure-secret-key'
 
 
-def plugin_settings(settings):
+def plugin_settings(settings):  # pylint: disable=unused-argument
     """
     Defines completion-specific settings when app is used as a plugin to edx-platform.
     See: https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/plugins/README.rst
     """
-    # plugin setting
-    settings.OPENEDX_WALLET_TYPE = 'web'

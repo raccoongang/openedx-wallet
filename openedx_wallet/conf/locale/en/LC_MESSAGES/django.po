@@ -1,0 +1,86 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-14 14:07-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: forms.py:17
+msgid "Data model"
+msgstr ""
+
+#: forms.py:32
+msgid "Required. Valid DID value."
+msgstr ""
+
+#: forms.py:33
+msgid "Optional. Should be future date."
+msgstr ""
+
+#: storage.py:16
+msgid "Open edX Wallet"
+msgstr ""
+
+#: templates/issuance_result.html:35
+msgid "Open edX Wallet: Result"
+msgstr ""
+
+#: templates/issuance_result.html:40 templates/issuance_setup.html:57
+msgid "Open edX Sandbox Wallet"
+msgstr ""
+
+#: templates/issuance_result.html:41
+msgid "Issued verifiable credential"
+msgstr ""
+
+#: templates/issuance_result.html:45
+msgid "Back to Setup page"
+msgstr ""
+
+#: templates/issuance_result.html:50
+msgid "Request more"
+msgstr ""
+
+#: templates/issuance_result.html:52
+msgid "Download"
+msgstr ""
+
+#: templates/issuance_setup.html:52
+msgid "Open edX Wallet: Setup"
+msgstr ""
+
+#: templates/issuance_setup.html:58
+msgid "Verifiable credential issuance setup"
+msgstr ""
+
+#: templates/issuance_setup.html:67
+msgid "Issuance line:"
+msgstr ""
+
+#: templates/issuance_setup.html:68
+msgid "Issuer DID:"
+msgstr ""
+
+#: templates/issuance_setup.html:71
+msgid "Issue"
+msgstr ""
+
+#: templates/issuance_setup.html:72
+msgid "Cancel"
+msgstr ""
+
+#: views.py:70
+msgid "Something went wrong..."
+msgstr ""

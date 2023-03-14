@@ -1,0 +1,89 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-14 14:07-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: eo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: forms.py
+msgid "Data model"
+msgstr "Dätä mödél Ⱡ'σяєм ιρѕυм ∂σłσ#"
+
+#: forms.py
+msgid "Required. Valid DID value."
+msgstr "Réqüïréd. Välïd DÌD välüé. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢σηѕ#"
+
+#: forms.py
+msgid "Optional. Should be future date."
+msgstr ""
+"Öptïönäl. Shöüld ßé fütüré däté. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢σηѕє¢тє#"
+
+#: storage.py
+msgid "Open edX Wallet"
+msgstr "Öpén édX Wällét Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт α#"
+
+#: templates/issuance_result.html
+msgid "Open edX Wallet: Result"
+msgstr "Öpén édX Wällét: Résült Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢σ#"
+
+#: templates/issuance_result.html templates/issuance_setup.html
+msgid "Open edX Sandbox Wallet"
+msgstr "Öpén édX Sändßöx Wällét Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢σ#"
+
+#: templates/issuance_result.html
+msgid "Issued verifiable credential"
+msgstr "Ìssüéd vérïfïäßlé çrédéntïäl Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢σηѕє¢#"
+
+#: templates/issuance_result.html
+msgid "Back to Setup page"
+msgstr "Bäçk tö Sétüp pägé Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт#"
+
+#: templates/issuance_result.html
+msgid "Request more"
+msgstr "Réqüést möré Ⱡ'σяєм ιρѕυм ∂σłσя ѕ#"
+
+#: templates/issuance_result.html
+msgid "Download"
+msgstr "Döwnlöäd Ⱡ'σяєм ιρѕυм ∂#"
+
+#: templates/issuance_setup.html
+msgid "Open edX Wallet: Setup"
+msgstr "Öpén édX Wällét: Sétüp Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢#"
+
+#: templates/issuance_setup.html
+msgid "Verifiable credential issuance setup"
+msgstr ""
+"Vérïfïäßlé çrédéntïäl ïssüänçé sétüp Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, "
+"¢σηѕє¢тєтυ#"
+
+#: templates/issuance_setup.html
+msgid "Issuance line:"
+msgstr "Ìssüänçé lïné: Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт#"
+
+#: templates/issuance_setup.html
+msgid "Issuer DID:"
+msgstr "Ìssüér DÌD: Ⱡ'σяєм ιρѕυм ∂σłσя #"
+
+#: templates/issuance_setup.html
+msgid "Issue"
+msgstr "Ìssüé Ⱡ'σяєм ιρѕ#"
+
+#: templates/issuance_setup.html
+msgid "Cancel"
+msgstr "Çänçél Ⱡ'σяєм ιρѕυ#"
+
+#: views.py
+msgid "Something went wrong..."
+msgstr "Söméthïng wént wröng... Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢σ#"
