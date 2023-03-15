@@ -57,6 +57,9 @@ class SetupView(UpdateView):
             return self.form_invalid(form)
 
         self.put_to_session(verifiable_credential)
+        # mark issuance line as processed (in addition to the Issuer pipeline)
+        # otherwise it will be reverted during the form saving
+        form.instance.processed = True
         return self.form_valid(form)
 
     def request_verifiable_credential(self, form):
