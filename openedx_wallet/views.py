@@ -5,7 +5,7 @@ import json
 import logging
 from urllib.parse import urljoin
 
-from credentials.apps.verifiable_credentials.models import IssuanceLine
+from credentials.apps.verifiable_credentials.issuance.models import IssuanceLine
 from credentials.apps.verifiable_credentials.rest_api.v1.views import IssueCredentialView
 from django.conf import settings
 from django.urls import reverse

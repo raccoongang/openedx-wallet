@@ -3,7 +3,7 @@ openedx_wallet UI forms.
 """
 from datetime import datetime, timedelta
 
-from credentials.apps.verifiable_credentials.models import IssuanceLine, generate_data_model_choices
+from credentials.apps.verifiable_credentials.issuance.models import IssuanceLine, generate_data_model_choices
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
@@ -28,6 +28,9 @@ class IssuanceLineForm(forms.ModelForm):
             "subject_id",
             "expiration_date",
         ]
+        labels = {
+            "expiration_date": _("Valid until")
+        }
         help_texts = {
             "subject_id": _("Required. Valid DID value."),
             "expiration_date": _("Optional. Should be future date."),
