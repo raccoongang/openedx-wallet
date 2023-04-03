@@ -78,7 +78,7 @@ class SetupView(UpdateView):
             response = IssueCredentialView.as_view()(
                 self.request, issuance_line_uuid=self.object.uuid
             )
-            if response.status_code == 400:
+            if response.status_code in [400, 401, 403]:
                 for error, message in response.data.items():
                     form.add_error(error if error in form.fields else None, message)
         except Exception:  # pylint: disable=broad-except
@@ -86,9 +86,7 @@ class SetupView(UpdateView):
             logger.exception(msg)
             form.add_error(None, msg)
         else:
-            verifiable_credential = response.data.get(
-                "verifiableCredential", verifiable_credential
-            )
+            verifiable_credential = response.data
 
         return json.dumps(verifiable_credential)
 
@@ -118,6 +116,7 @@ class ResultView(TemplateView):
         """
         Extend render context with needed data.
         """
+        issuance_line_id = kwargs["pk"]
         context = super().get_context_data(**kwargs)
         verifiable_credential_json = self.get_from_session()
         prettyfied = self.prettify_json(verifiable_credential_json)
@@ -128,9 +127,10 @@ class ResultView(TemplateView):
                 "formatted_verifiable_credential": prettyfied,
                 "setup_page_url": reverse(
                     "openedx-wallet:issuance_setup",
-                    kwargs={"pk": kwargs["pk"]},
+                    kwargs={"pk": issuance_line_id},
                 ),
-                "json_file_name": f"{kwargs['pk']}.json",
+                "json_file_name": f"{issuance_line_id}.json",
+                "data_model_name": IssuanceLine.objects.get(pk=issuance_line_id).data_model_name
             }
         )
         return context

@@ -1,8 +1,9 @@
 """
-openedx_wallet verifiable credentials storage backends.
+Open edx Wallet verifiable credentials storage backends.
 """
 from credentials.apps.verifiable_credentials.composition.verifiable_credentials import VerifiableCredentialsDataModel
 from credentials.apps.verifiable_credentials.storages import WebWallet
+from crum import get_current_request
 from django.urls import reverse
 from django.utils.translation import gettext as _
 
@@ -22,7 +23,9 @@ class OpenEdxWallet(WebWallet):
         """
         Construct URL for initial page.
         """
-        request = kwargs['request']
+        request = get_current_request()
+        if not request:
+            return None
         return request.build_absolute_uri(
-            reverse("openedx-wallet:issuance_setup", kwargs={"pk": issuance_line})
+            reverse("openedx-wallet:issuance_setup", kwargs={"pk": issuance_line.uuid})
         )
